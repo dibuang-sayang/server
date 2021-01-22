@@ -1,19 +1,21 @@
-const { 
-  getUsers, 
+const {
+  getUsers,
   deleteDataUser,
   registerUser,
   editUser,
-  getUserById
+  getUserById,
+  loginUser,
 } = require("./user/index");
 
 module.exports = {
   Query: {
     users: getUsers,
-    user: getUserById
+    user: getUserById,
   },
-  Mutation : {
-    deleteUser : deleteDataUser,
-    register : registerUser,
-    editUser : editUser
-  }
+  Mutation: {
+    deleteUser: deleteDataUser,
+    register: registerUser,
+    editUser: editUser,
+    loginUser: loginUser,
+  },
 };

@@ -19,6 +19,10 @@ module.exports = gql`
   }
 
   type Message {
-    msg : String
+    msg: String
+  }
+
+  type Token {
+    token: String
   }
 `;
