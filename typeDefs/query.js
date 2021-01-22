@@ -7,5 +7,8 @@ module.exports = gql`
 
     offices : [Office]
     office(id : ID!) : Office
+
+    products : [Product]
+    product(id : ID!) : Product 
   }
 `;
