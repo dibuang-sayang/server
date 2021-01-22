@@ -1,7 +1,6 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
+const { encode } = require("../helpers/passHelper");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -10,19 +9,35 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      User.hasOne(models.Office)
+      User.hasOne(models.Office);
       // define association here
     }
-  };
-  User.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    password: DataTypes.STRING,
-    email: DataTypes.STRING,
-    role: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'User',
-  });
+  }
+  User.init(
+    {
+      firstName: DataTypes.STRING,
+      lastName: DataTypes.STRING,
+      password: DataTypes.STRING,
+      email: {
+        type: DataTypes.STRING,
+        unique: true,
+        validate: {
+          isEmail: {
+            msg: "harus berupa email",
+          },
+        },
+      },
+      role: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "User",
+      hooks: {
+        beforeCreate: (instance) => {
+          instance.password = encode(instance.password);
+        },
+      },
+    }
+  );
   return User;
 };
