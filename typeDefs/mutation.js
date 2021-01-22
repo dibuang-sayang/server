@@ -10,5 +10,9 @@ module.exports = gql`
     deleteOffice(id : ID!) : OfficeMessage
     editOffice(id : ID!, data :OfficeData ) : Office
 
+    addProduct(data : ProductData) : Product
+    deleteProduct(id : ID!): Message
+    editProduct(id : ID!, data : ProductData) : Product
+
   }
 `;
