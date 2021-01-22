@@ -4,5 +4,8 @@ module.exports = gql`
   type Query {
     users: [User]
     user(id : ID!) : User
+
+    offices : [Office]
+    office(id : ID!) : Office
   }
 `;
