@@ -17,4 +17,8 @@ module.exports = gql`
     role: String
     email: String
   }
+
+  type Message {
+    msg : String
+  }
 `;

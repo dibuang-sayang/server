@@ -1,8 +1,9 @@
-const { User } = require("../../models")
+const { User } = require('../../models')
+
 
 module.exports = async (_,args) => {
+    
     try {
-        const userId = args.id
         const {
             firstName,
             lastName,
@@ -19,15 +20,12 @@ module.exports = async (_,args) => {
             role,
             email
         }
-        console.log(newUserData, "data baru")
-        const updatedData = await User.update(newUserData,{
-            where : {
-                id : userId
-            },
-            returning : true
-        })
-        const data = updatedData[1][0].dataValues
-        return data 
+
+        const registerUser = await User.create(newUserData)
+        console.log(registerUser)
+        return registerUser
+
+        
     } catch (error) {
         console.log(error)
     }

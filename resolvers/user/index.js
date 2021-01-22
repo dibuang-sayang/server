@@ -2,5 +2,6 @@ module.exports = {
   getUsers: require("./getAllUser"),
   getUserById: require("./getUserById"),
   editUser: require("./editUser"),
-  deleteUser: require("./deleteUser"),
+  deleteDataUser: require("./deleteDataUser"),
+  registerUser : require("./registerUser")
 };
