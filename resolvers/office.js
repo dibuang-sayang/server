@@ -1,13 +1,19 @@
 const {
     addOffice,
-    getAllOffice
+    getAllOffice,
+    getOfficeById,
+    editOffice,
+    deleteOffice
 } = require("./office/index")
 
 module.exports = {
     Query : {
-        offices : getAllOffice
+        offices : getAllOffice,
+        office : getOfficeById
     },
     Mutation : {
-        addOffice : addOffice
+        addOffice : addOffice,
+        editOffice : editOffice,
+        deleteOffice : deleteOffice
     }
 }

@@ -2,7 +2,7 @@ const { Office } = require("../../models")
 
 module.exports = async() => {
     try {
-        const {data : officeData} = await Office.findAll({
+        const officeData = await Office.findAll({
             include : ["User"]
         })
         console.log(officeData)
