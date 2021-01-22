@@ -5,5 +5,10 @@ module.exports = gql`
     register(data: UserData): User
     deleteUser(id: ID!) : Message
     editUser(id: ID!, data : UserData) : User
+
+    addOffice(data : OfficeData) : Office
+    deleteOffice(id : ID!) : OfficeMessage
+    editOffice(id : ID!) : Office
+
   }
 `;
