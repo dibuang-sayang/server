@@ -1,1 +1,0 @@
-//biar ga ilang
