@@ -10,5 +10,9 @@ module.exports = gql`
 
     products: [Product]
     product(id: ID!): Product
+
+    carts : [Cart]
+    cart(id : ID!) : Cart
+    checkOut : Message
   }
 `;
