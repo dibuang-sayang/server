@@ -1,6 +1,7 @@
 const { Office } = require("../../models")
-
-module.exports = async (_,args) => {
+const {authentication } = require("../../helpers/authentication")
+const { authorizationIdUser } = require("../../helpers/authorizationIdUser")
+module.exports = authentication( authorizationIdUser( async (_,args) => {
     try {
         const officeId = args.id
         const {
@@ -30,4 +31,4 @@ module.exports = async (_,args) => {
     } catch (error) {
         
     }
-}
+}))

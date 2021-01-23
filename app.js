@@ -5,8 +5,17 @@ if (process.env.NODE_ENV !== "production") {
 const { ApolloServer } = require("apollo-server");
 const typeDefs = require("./typeDefs");
 const resolvers = require("./resolvers");
-
-const server = new ApolloServer({ typeDefs, resolvers });
+// const { findUserFromToken } = require("./middleware/authentication")
+const models = require("./models")
+const server = new ApolloServer({ 
+  typeDefs,
+  resolvers,
+  context({req}) {
+    // const token = req.headers.token
+    // const userLogin = findUserFromToken(token)
+    return {req}
+  }
+});
 
 module.exports = server;
 // server.listen().then(({ url }) => {

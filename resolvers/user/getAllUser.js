@@ -1,11 +1,11 @@
 const { User } = require("../../models");
-
-module.exports = async () => {
+const {authentication } = require("../../helpers/authentication")
+module.exports = authentication (async () => {
   try {
     const users = await User.findAll();
-    console.log(users);
+    // console.log(users);
     return users;
   } catch (error) {
     console.log(error);
   }
-};
+})
