@@ -1,6 +1,7 @@
 const { User } = require("../../models")
+const {authentication } = require("../../helpers/authentication")
 
-module.exports = async (_,args) => {
+module.exports = authentication( async (_,args) => {
     try {
         const userId = args.id
         const {
@@ -19,7 +20,6 @@ module.exports = async (_,args) => {
             role,
             email
         }
-        console.log(newUserData, "data baru")
         const updatedData = await User.update(newUserData,{
             where : {
                 id : userId
@@ -29,6 +29,6 @@ module.exports = async (_,args) => {
         const data = updatedData[1][0].dataValues
         return data 
     } catch (error) {
-        console.log(error)
+        return error
     }
-}
+})
