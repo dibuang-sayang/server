@@ -1,6 +1,7 @@
 const { Office } = require("../../models")
-
-module.exports = async (_,args) => {
+const { authentication } = require("../../helpers/authentication")
+const { authorizationIdOfficeUser } = require("../../helpers/authorizationIdOfficeUser")
+module.exports = authentication( authorizationIdOfficeUser( async (_,args) => {
     try {
         const officeId = args.id
         const deletedOffice = await Office.destroy({
@@ -14,4 +15,4 @@ module.exports = async (_,args) => {
     } catch (error) {
         console.log(error)
     }
-}
+}))

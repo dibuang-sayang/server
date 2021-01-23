@@ -1,5 +1,9 @@
 const {Product} = require("../../models")
-module.exports = async (_,args) =>{
+const { authentication } = require("../../helpers/authentication")
+const { authorizationProduct } = require("../../helpers/authorizationProduct")
+
+
+module.exports = authentication( authorizationProduct( async (_,args) =>{
     try {
         const productId = args.id
         const deletedProduct = await Product.destroy({
@@ -14,4 +18,4 @@ module.exports = async (_,args) =>{
     } catch (error) {
         
     }
-}
+}))

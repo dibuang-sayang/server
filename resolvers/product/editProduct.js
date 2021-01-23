@@ -1,6 +1,8 @@
 const {Product} = require("../../models")
+const { authentication } = require("../../helpers/authentication")
+const { authorizationProduct } = require("../../helpers/authorizationProduct")
 
-module.exports = async (_,args) => {
+module.exports = authentication( authorizationProduct( async (_,args) => {
     try {
         const productId = args.id
         const {
@@ -34,4 +36,4 @@ module.exports = async (_,args) => {
     } catch (error) {
         return error
     }
-}
+}))
