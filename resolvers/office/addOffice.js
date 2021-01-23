@@ -1,7 +1,8 @@
 const { Office } = require("../../models")
+const {authentication} = require("../../helpers/authentication")
+const { authorizationUserRole } = require("../../helpers/authorizationUserRole")
 
-
-module.exports = async(_,args) => {
+module.exports = authentication(authorizationUserRole(["pengepul", "pengrajin"],async(_,args) => {
     try {
         const {
             UserId,
@@ -26,4 +27,4 @@ module.exports = async(_,args) => {
     } catch (error) {
         console.log(error)
     }
-}
+}))
