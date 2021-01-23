@@ -9,9 +9,8 @@ module.exports = async(_,args) => {
             },
             include : ["Office"]
         }) 
-        console.log(productData);
         return productData
     } catch (error) {
-        console.log(error);
+        return error
     }
 }

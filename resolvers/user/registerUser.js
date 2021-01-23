@@ -11,12 +11,8 @@ module.exports = async (_, args) => {
       role,
       email,
     };
-
-    const registerUser = await User.create(newUserData);
-    // console.log(registerUser);
-    return registerUser;
+    return registerUser = await User.create(newUserData);
   } catch (error) {
-    // console.log(error, `dari controller`);
     return error;
   }
 };

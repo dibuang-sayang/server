@@ -13,7 +13,6 @@ const authorizationIdOfficeUser = (next) => async (root,args,ctx,info) => {
     })
     if(!checkedOffice) throw new AuthenticationError("data not found")
     const owner = checkedOffice.dataValues.UserId
-    console.log(userLogin.id,owner);
     if( userLogin.id === owner) {
         return next(root,args,ctx,info)
     }else {

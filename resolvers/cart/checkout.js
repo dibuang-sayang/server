@@ -18,7 +18,6 @@ module.exports = authentication(async (_,args, {user}) => {
             if(cart.quantity <= cart.Product.stock){
                 const finalStock = cart.Product.stock - cart.quantity
                 const productId = cart.Product.id
-                console.log(finalStock);
                 const updateStockOfProduct = Product.update({stock : finalStock}, {
                     where : {
                         id : productId
@@ -37,16 +36,17 @@ module.exports = authentication(async (_,args, {user}) => {
                 toBeExecute.push(updateStatusOfCart)
             }
             else {
+                fixQuantity.push(Cart.update({quantity: cart.Product.stock}), {where: { id: cart.id }})
                 errors.push(`gagal beli ${cart.Product.name}`)
             }
 
         });
         const result = await Promise.all(toBeExecute)
         if(errors.length > 0) {
+            await Promise.all(fixQuantity)
             throw new Error("ada yang salah")
         }
         await transaction.commit()
-        console.log(result);
         return {msg : "succes CheckOut"}
         
     } catch (error) {

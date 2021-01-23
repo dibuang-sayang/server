@@ -28,10 +28,8 @@ module.exports = authentication( authorizationProduct( async (_,args) => {
             returning : true
 
         })
-        // console.log(editedProduct[0]);
         if(!editedProduct[0]) throw new Error("data not found")
         const data = editedProduct[1][0].dataValues
-        console.log(data);
         return data
     } catch (error) {
         return error

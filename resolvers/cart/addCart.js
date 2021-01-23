@@ -4,7 +4,6 @@ const { Op } = require("sequelize");
 
 module.exports = authentication( async(_,args, {user}) =>{
     try {
-        console.log(args.data, "ini data");
         let {
             ProductId,
             quantity,
@@ -28,7 +27,6 @@ module.exports = authentication( async(_,args, {user}) =>{
             include : ["Product"]
             
         })
-        // console.log(findCart.dataValues);
         if(!findCart) {
             const newCart = await Cart.create(newData)
             return newCart

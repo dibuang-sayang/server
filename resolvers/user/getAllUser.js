@@ -5,6 +5,6 @@ module.exports = authentication (async () => {
     const users = await User.findAll();
     return users;
   } catch (error) {
-    console.log(error);
+    return error
   }
 })
