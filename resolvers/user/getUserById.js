@@ -11,6 +11,6 @@ module.exports = authentication(async (_, args, { user }) => {
     });
     return userData;
   } catch (error) {
-    console.log(error);
+    return error
   }
 });

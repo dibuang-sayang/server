@@ -26,7 +26,6 @@ module.exports = authentication( authorizationUserRole(["pengepul", "pengrajin"]
             picture
         }
         const productCreated = await Product.create(newProduct)
-        console.log(productCreated);
         return productCreated
     } catch (error) {
         return error

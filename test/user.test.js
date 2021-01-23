@@ -42,11 +42,11 @@ const LOGIN_USER = gql`
 `;
 
 const { query, mutate } = createTestServer();
-afterAll(async () => {
-  const emptyTheTable = await queryInterface.bulkDelete('Users', {
-    email: 'user@personal.tes',
-  });
-});
+// afterAll(async () => {
+//   const emptyTheTable = await queryInterface.bulkDelete('Users', {
+//     email: 'user@personal.tes',
+//   });
+// });
 
 describe('Testing User', () => {
   describe('User Register', () => {
@@ -130,8 +130,18 @@ describe('Testing User', () => {
           password: '123456',
         },
       });
-      console.log(res, 'dari tes');
-      expect(res).toHaveProperty('token');
+      expect(res.data.loginUser).toHaveProperty('token');
+    });
+    test('should return invalid email/password', async () => {
+      const res = await mutate({
+        query: LOGIN_USER,
+        variables: {
+          email: 'user@personal.tes',
+          password: '1234568',
+        },
+      });
+      console.log(res);
+      expect(res.errors[0].message).toBe('invalid email/password')
     });
   });
 });

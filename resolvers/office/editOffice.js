@@ -8,9 +8,7 @@ module.exports = authentication(
     ["pengepul", "pengrajin"],
     async (_, args, { user }) => {
       try {
-        console.log(args);
         const { id } = await Office.findOne({ where: { UserId: user.id } });
-        console.log(id, "ini id");
 
         const {
           UserId,

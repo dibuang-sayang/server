@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --forceExit --verbose --detectOpenHandles",
-    "dev": "nodemon app.js"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",

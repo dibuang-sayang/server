@@ -14,10 +14,7 @@ module.exports = authentication(
         phoneNumber,
         category,
       };
-      console.log(newData);
-      console.log(ctx.user, "ctxxxx");
       const newOffice = await Office.create(newData);
-      console.log(newOffice);
       return newOffice;
     } catch (error) {
       return error;

@@ -11,10 +11,8 @@ const authorizationIdCart = (next) => async (root,args,ctx,info) => {
             id: cartId
         }
     })
-    console.log(checkedCart);
     if(!checkedCart) throw new AuthenticationError("data not found")
     const owner = checkedCart.dataValues.UserId
-    console.log(userLogin.id,owner);
     if( userLogin.id === owner) {
         return next(root,args,ctx,info)
     }else {

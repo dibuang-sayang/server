@@ -5,7 +5,6 @@ module.exports = async (_, __) => {
     const officeData = await Office.findAll({
       include: ["User"],
     });
-    // console.log(officeData)
     return officeData;
   } catch (error) {
     return error;

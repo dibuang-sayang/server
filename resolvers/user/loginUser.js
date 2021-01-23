@@ -5,7 +5,6 @@ const { tokenEncode } = require('../../helpers/jwtHelper');
 module.exports = async (_, args) => {
   try {
     const loginUser = await User.findOne({ where: { email: args.email } });
-    // console.log(loginUser);
     if (loginUser && decode(args.password, loginUser.password)) {
       return {
         token: tokenEncode({
@@ -14,9 +13,8 @@ module.exports = async (_, args) => {
           role: loginUser.role,
         }),
       };
-    }
+    }else throw new Error("invalid email/password")
   } catch (error) {
-    console.log(error, 'dari controller');
     return error;
   }
 };
