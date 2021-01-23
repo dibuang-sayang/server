@@ -3,12 +3,12 @@ const { gql } = require("apollo-server");
 module.exports = gql`
   type Query {
     users: [User]
-    user(id : ID!) : User
+    user: User
 
-    offices : [Office]
-    office(id : ID!) : Office
+    offices: [Office]
+    office(id: ID!): Office
 
-    products : [Product]
-    product(id : ID!) : Product 
+    products: [Product]
+    product(id: ID!): Product
   }
 `;
