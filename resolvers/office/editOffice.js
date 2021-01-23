@@ -1,7 +1,7 @@
 const { Office } = require("../../models")
 const {authentication } = require("../../helpers/authentication")
-const { authorizationIdUser } = require("../../helpers/authorizationIdUser")
-module.exports = authentication( authorizationIdUser( async (_,args) => {
+const { authorizationIdOfficeUser } = require("../../helpers/authorizationIdOfficeUser")
+module.exports = authentication( authorizationIdOfficeUser( async (_,args) => {
     try {
         const officeId = args.id
         const {
