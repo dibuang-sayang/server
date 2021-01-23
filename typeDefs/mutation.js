@@ -14,5 +14,9 @@ module.exports = gql`
     addProduct(data: ProductData): Product
     deleteProduct(id: ID!): Message
     editProduct(id: ID!, data: ProductData): Product
+
+    addCart(data : CartData) : Cart
+    deleteCart(id : ID!) : Message
+    editCart(id: ID!, data :CartData) : Cart
   }
 `;

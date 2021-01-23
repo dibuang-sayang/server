@@ -1,6 +1,7 @@
 const { User } = require("../../models");
+const {authentication } = require("../../helpers/authentication")
 
-module.exports = async (_, args, { user }) => {
+module.exports = authentication (async (_, args, { user }) => {
   try {
     const userId = user.id;
     const deletedUser = await User.destroy({ where: { id: userId } });
@@ -13,4 +14,4 @@ module.exports = async (_, args, { user }) => {
   } catch (error) {
     console.log(error);
   }
-};
+});

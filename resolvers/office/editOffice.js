@@ -11,6 +11,7 @@ module.exports = authentication(
         console.log(args);
         const { id } = await Office.findOne({ where: { UserId: user.id } });
         console.log(id, "ini id");
+
         const {
           UserId,
           address,

@@ -1,9 +1,16 @@
-const { Product } = require("../../models")
+const { Product, Office } = require("../../models")
+const {authorizationUserRole} = require("../../helpers/authorizationUserRole");
+const { authentication } = require("../../helpers/authentication");
 
-module.exports = async (_,args) => {
+module.exports = authentication( authorizationUserRole(["pengepul", "pengrajin"], async (_,args, {user}) => {
     try {
+        const officeData = await Office.findOne({
+            where : {
+                UserId : user.id
+            }
+        })
+        const officeId = officeData.id
         const {
-            OfficeId,
             name,
             price,
             category,
@@ -11,7 +18,7 @@ module.exports = async (_,args) => {
             picture
         } = args.data
         const newProduct = {
-            OfficeId,
+            OfficeId :officeId,
             name,
             price,
             category,
@@ -22,6 +29,6 @@ module.exports = async (_,args) => {
         console.log(productCreated);
         return productCreated
     } catch (error) {
-        console.log(error);
+        return error
     }
-}
+}))

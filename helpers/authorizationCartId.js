@@ -1,18 +1,19 @@
 const {AuthenticationError} = require('apollo-server')
-const {Office} = require("../models")
+const {Cart} = require("../models")
 const { tokenVerify } = require("./jwtHelper")
 
-const authorizationIdUser = (next) => async (root,args,ctx,info) => {
+const authorizationIdCart = (next) => async (root,args,ctx,info) => {
     const token = ctx.req.headers.token
-    const officeId = args.id
+    const cartId = args.id
     const userLogin = tokenVerify(token)
-    const checkedOffice = await Office.findOne({
+    const checkedCart = await Cart.findOne({
         where : {
-            id: officeId
+            id: cartId
         }
     })
-    if(!checkedOffice) throw new AuthenticationError("data not found")
-    const owner = checkedOffice.dataValues.UserId
+    console.log(checkedCart);
+    if(!checkedCart) throw new AuthenticationError("data not found")
+    const owner = checkedCart.dataValues.UserId
     console.log(userLogin.id,owner);
     if( userLogin.id === owner) {
         return next(root,args,ctx,info)
@@ -23,5 +24,5 @@ const authorizationIdUser = (next) => async (root,args,ctx,info) => {
 
 
 module.exports = {
-    authorizationIdUser
+    authorizationIdCart
 }

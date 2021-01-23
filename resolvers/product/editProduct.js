@@ -1,6 +1,8 @@
 const {Product} = require("../../models")
+const { authentication } = require("../../helpers/authentication")
+const { authorizationProduct } = require("../../helpers/authorizationProduct")
 
-module.exports = async (_,args) => {
+module.exports = authentication( authorizationProduct( async (_,args) => {
     try {
         const productId = args.id
         const {
@@ -26,10 +28,12 @@ module.exports = async (_,args) => {
             returning : true
 
         })
+        // console.log(editedProduct[0]);
+        if(!editedProduct[0]) throw new Error("data not found")
         const data = editedProduct[1][0].dataValues
         console.log(data);
         return data
     } catch (error) {
-        console.log(error);
+        return error
     }
-}
+}))
