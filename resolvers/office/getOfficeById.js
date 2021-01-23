@@ -1,19 +1,20 @@
-const { Office } = require("../../models")
+const { Office } = require("../../models");
+const { authentication } = require("../../helpers/authentication");
 
-module.exports = async (_,args,{userLogin}) => {
-    console.log(args)
-    try {
-        const user = await userLogin
-        console.log(user, "<<<< User")
-        const officeId = args.id
-        const officeData = Office.findOne({
-            where : {
-                id : officeId
-            }
-        })
-        console.log(officeData)
-        return officeData
-    } catch (error) {
-        console.log(error)
-    }
-}
+module.exports = authentication(async (_, args, { user }) => {
+  console.log(args);
+  try {
+    // const user = await userLogin;
+    console.log(user, "<<<< User");
+    const officeId = user.id;
+    const officeData = Office.findOne({
+      where: {
+        UserId: user.id,
+      },
+    });
+    // console.log(officeData);
+    return officeData;
+  } catch (error) {
+    console.log(error);
+  }
+});

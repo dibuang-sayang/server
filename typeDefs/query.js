@@ -6,7 +6,7 @@ module.exports = gql`
     user: User
 
     offices: [Office]
-    office(id: ID!): Office
+    office: Office
 
     products: [Product]
     product(id: ID!): Product
