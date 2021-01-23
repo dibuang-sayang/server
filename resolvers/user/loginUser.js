@@ -1,11 +1,11 @@
-const { User } = require("../../models");
-const { decode } = require("../../helpers/passHelper");
-const { tokenEncode } = require("../../helpers/jwtHelper");
+const { User } = require('../../models');
+const { decode } = require('../../helpers/passHelper');
+const { tokenEncode } = require('../../helpers/jwtHelper');
 
 module.exports = async (_, args) => {
   try {
     const loginUser = await User.findOne({ where: { email: args.email } });
-    console.log(loginUser);
+    // console.log(loginUser);
     if (loginUser && decode(args.password, loginUser.password)) {
       return {
         token: tokenEncode({
@@ -15,5 +15,8 @@ module.exports = async (_, args) => {
         }),
       };
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error, 'dari controller');
+    return error;
+  }
 };

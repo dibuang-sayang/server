@@ -1,6 +1,6 @@
-"use strict";
-const { Model } = require("sequelize");
-const { encode } = require("../helpers/passHelper");
+'use strict';
+const { Model } = require('sequelize');
+const { encode } = require('../helpers/passHelper');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -21,18 +21,29 @@ module.exports = (sequelize, DataTypes) => {
       password: DataTypes.STRING,
       email: {
         type: DataTypes.STRING,
-        unique: true,
+        unique: {
+          args: true,
+          msg: `email sudah dipakai`,
+        },
         validate: {
           isEmail: {
-            msg: "harus berupa email",
+            msg: 'harus berupa email',
           },
         },
       },
-      role: DataTypes.STRING,
+      role: {
+        type: DataTypes.STRING,
+        validate: {
+          isIn: {
+            args: [['pengepul', 'pengrajin', 'anggota']],
+            msg: `role salah`,
+          },
+        },
+      },
     },
     {
       sequelize,
-      modelName: "User",
+      modelName: 'User',
       hooks: {
         beforeCreate: (instance) => {
           instance.password = encode(instance.password);
