@@ -8,7 +8,11 @@ module.exports = async (_, args) => {
     console.log(loginUser);
     if (loginUser && decode(args.password, loginUser.password)) {
       return {
-        token: tokenEncode({ email: loginUser.email, id: loginUser.id }),
+        token: tokenEncode({
+          email: loginUser.email,
+          id: loginUser.id,
+          role: loginUser.role,
+        }),
       };
     }
   } catch (error) {}
