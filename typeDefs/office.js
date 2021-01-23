@@ -1,29 +1,26 @@
-const { gql } = require("apollo-server")
-
+const { gql } = require("apollo-server");
 
 module.exports = gql`
+  type Office {
+    id: ID
+    UserId: Int
+    address: String
+    latitude: Float
+    longitude: Float
+    phoneNumber: String
+    category: String
+    User: User
+  }
 
-    type Office {
-        id : ID
-        UserId : Int
-        address : String
-        latitude : Float
-        longitude : Float
-        phoneNumber : String
-        category : String
-        User : User
-    }
+  input OfficeData {
+    address: String
+    latitude: Float
+    longitude: Float
+    phoneNumber: String
+    category: String
+  }
 
-    input OfficeData {
-        UserId : Int
-        address : String
-        latitude : Float
-        longitude : Float
-        phoneNumber : String
-        category : String
-    }
-    
-    type OfficeMessage {
-        msg : String
-    }
-`
+  type OfficeMessage {
+    msg: String
+  }
+`;
