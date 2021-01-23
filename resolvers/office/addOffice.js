@@ -22,7 +22,7 @@ module.exports = authentication(
       console.log(newOffice);
       return newOffice;
     } catch (error) {
-      console.log(error);
+      return error;
     }
   })
 );

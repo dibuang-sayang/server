@@ -18,9 +18,13 @@
 
 // login > hit login > balikin token > localStorage > redirect ke halaman utama > halaman useeffect  >  hit cektoken > role > pengepul/pengarjin
 
-const { encode, decode } = require("./helpers/passHelper");
+// const { encode, decode } = require("./helpers/passHelper");
 
-console.log(encode("test"));
-console.log(
-  decode("test", "$2a$08$rM3b35l8kRdk/4Dpl7/eYuZbJZUlRS1d4xAaSjUsyEkMJKYvPCPrq")
-);
+// console.log(encode("test"));
+// console.log(
+//   decode("test", "$2a$08$rM3b35l8kRdk/4Dpl7/eYuZbJZUlRS1d4xAaSjUsyEkMJKYvPCPrq")
+// );
+
+// login > token > data office (officeId) > product ? office id
+
+// token > userId > find di office by fk useId > officeId > find di product by fk officeId > ijin ngedit

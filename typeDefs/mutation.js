@@ -8,8 +8,8 @@ module.exports = gql`
     loginUser(email: String, password: String): Token
 
     addOffice(data: OfficeData): Office
-    deleteOffice(id: ID!): OfficeMessage
-    editOffice(id: ID!, data: OfficeData): Office
+    deleteOffice: OfficeMessage
+    editOffice(data: OfficeData): Office
 
     addProduct(data: ProductData): Product
     deleteProduct(id: ID!): Message
