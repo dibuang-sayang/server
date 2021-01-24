@@ -1,10 +1,9 @@
-const { User } = require("../../models");
-const {authentication } = require("../../helpers/authentication")
-module.exports = authentication (async () => {
+const { User } = require('../../models');
+const { authentication } = require('../../helpers/authentication');
+module.exports = authentication(async () => {
   try {
-    const users = await User.findAll();
-    return users;
+    return (users = await User.findAll());
   } catch (error) {
-    return error
+    return error;
   }
-})
+});
