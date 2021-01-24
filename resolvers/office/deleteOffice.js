@@ -1,4 +1,4 @@
-const { Office } = require("../../models");
+// const { Office } = require("../../models");
 const { authentication } = require("../../helpers/authentication");
 const {
   authorizationUserRole,
@@ -7,8 +7,9 @@ const {
 module.exports = authentication(
   authorizationUserRole(
     ["pengepul", "pengrajin"],
-    async (_, args, { user }) => {
+    async (_, args, { user , models}) => {
       try {
+        const {Office}= models
         const currentOffice = await Office.findOne({
           where: { UserId: user.id },
         });

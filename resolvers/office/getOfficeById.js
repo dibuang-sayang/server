@@ -1,8 +1,9 @@
-const { Office } = require("../../models");
+// const { Office } = require("../../models");
 const { authentication } = require("../../helpers/authentication");
 
-module.exports = authentication(async (_, args, { user }) => {
+module.exports = authentication(async (_, args, { user , models}) => {
   try {
+    const {Office} = models
     const officeData = Office.findOne({
       where: {
         UserId: user.id,
