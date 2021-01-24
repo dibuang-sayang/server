@@ -308,22 +308,3 @@ describe('Testing User', () => {
     });
   });
 });
-
-// describe('queries', () => {
-//   test('sucess get all', async () => {
-//     const res = await query({ query: FIND_ALL_USER });
-//     // console.log(res.data.users);
-//     expect(res.data).toHaveProperty('users');
-//   });
-
-//   test('get user by id', async () => {
-//     const res = await query({
-//       query: FIND_USER_BY_ID,
-//       variables: {
-//         id: 1,
-//       },
-//     });
-//     console.log(res);
-//     expect(res.data).toHaveProperty('user');
-//   });
-// });
