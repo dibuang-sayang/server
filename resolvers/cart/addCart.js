@@ -3,7 +3,11 @@ const { authentication } = require("../../helpers/authentication")
 const { Op } = require("sequelize");
 
 module.exports = authentication( async(_,args, {user}) =>{
+   
     try {
+        // if(Cart === undefined){
+        //     throw {msg: 'error nih'}
+        // }
         let {
             ProductId,
             quantity,
@@ -25,7 +29,6 @@ module.exports = authentication( async(_,args, {user}) =>{
                 ]
             },
             include : ["Product"]
-            
         })
         if(!findCart) {
             const newCart = await Cart.create(newData)
@@ -48,9 +51,8 @@ module.exports = authentication( async(_,args, {user}) =>{
             })
             return updateCart[1][0].dataValues
         }
-        
-
     } catch (error) {
+        console.log('error nih');
         return error;
     }
 })
