@@ -13,7 +13,7 @@ const server = new ApolloServer({
   context({req}) {
     // const token = req.headers.token
     // const userLogin = findUserFromToken(token)
-    return {req}
+    return {req, models}
   }
 });
 
