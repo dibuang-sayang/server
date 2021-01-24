@@ -598,36 +598,36 @@ describe("Testing Office", () => {
             done()
         } )
 
-        test("failed return error ADD office" ,async(done) => {
-            console.log("return error dong");
-            const {mutate} = createTestServer({
-                req : {
-                    headers : {
-                        token : tokenDummy
-                    }
-                },
-                models : null
-            })
+        // test("failed return error ADD office" ,async(done) => {
+        //     console.log("return error dong");
+        //     const {mutate} = createTestServer({
+        //         req : {
+        //             headers : {
+        //                 token : tokenDummy
+        //             }
+        //         },
+        //         models : null
+        //     })
 
-            const dummyADDOffice = {
-                address: "disini sini ",
-                latitude: 12345,
-                longitude: 123456,
-                phoneNumber: "123567",
-                category: "kantor-pengepul"
-            }
+        //     const dummyADDOffice = {
+        //         address: "disini sini ",
+        //         latitude: 12345,
+        //         longitude: 123456,
+        //         phoneNumber: "123567",
+        //         category: "kantor-pengepul"
+        //     }
 
 
-            const failedRoleADDOffice = await mutate({
-                query : ADD_OFFICE,
-                variables : {
-                    inputOffice : dummyADDOffice
-                }
-            })
-            console.log(failedRoleADDOffice, "ini eror retyrn");
-            expect(failedRoleADDOffice.errors[0]).toHaveProperty("message")
-            done()
-        } )
+        //     const failedRoleADDOffice = await mutate({
+        //         query : ADD_OFFICE,
+        //         variables : {
+        //             inputOffice : dummyADDOffice
+        //         }
+        //     })
+        //     console.log(failedRoleADDOffice, "ini eror retyrn");
+        //     expect(failedRoleADDOffice.errors[0]).toHaveProperty("message")
+        //     done()
+        // } )
     })
 
 

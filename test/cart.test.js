@@ -1,8 +1,8 @@
 const gql = require('graphql-tag');
 const createTestServer = require('./testserver');
 const { sequelize, Cart } = require('../models');
-const query = require('../typeDefs/query');
 const { queryInterface } = sequelize;
+const {Office} = require('../models')
 
 
 const REGISTER_USER = gql`
@@ -101,6 +101,13 @@ const CHECKOUT = gql`
     checkOut { msg }
   }
 `
+const DELETE_CART = gql`
+  mutation deleteCart($id: ID!){
+    deleteCart(id: $id){
+      msg
+    }
+  }
+`
 
 let tokenDummy
 let createdProduct
@@ -157,6 +164,9 @@ beforeAll (async () => {
       req: {
         headers: {
           token : tokenDummy
+        },
+        models: {
+          Office
         }
       }
     })
@@ -391,6 +401,46 @@ describe('add cart', () => {
     })
     // console.log(resCheckout);
     expect(resCheckout.data.checkOut.msg).toBe('succes CheckOut')
+    done()
+  })
+
+  test('delete fail cart', async (done) => {
+    const { query } = createTestServer({
+      req: {
+        headers: {
+          token : tokenDummy
+        }
+      }
+    })
+    // console.log(createdProduct.id, 'adsadasadsad');
+    const resDeleteCart = await query({
+      query: DELETE_CART,
+      variables: {
+        id: +createdProduct.id
+      }
+    })
+    // console.log(resDeleteCart, "test");
+    expect(resDeleteCart.errors[0].message).toBe("data not found")
+    done()
+  })
+
+  test('sucess ya allah', async (done) => {
+    const { query } = createTestServer({
+      req: {
+        headers: {
+          token : tokenDummy
+        }
+      }
+    })
+    // console.log(createdProduct.id, 'adsadasadsad');
+    const resDeleteCart = await query({
+      query: DELETE_CART,
+      variables: {
+        id: +testId
+      }
+    })
+    console.log(resDeleteCart, "test");
+    expect(resDeleteCart.data.deleteCart.msg).toBe("succes delete data")
     done()
   })
 })
