@@ -1,0 +1,345 @@
+[
+  {
+    "firstName": "Bates",
+    "lastName": "Adams",
+    "password": "tiorzal",
+    "email": "batesadams@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Ina",
+    "lastName": "Klein",
+    "password": "wicakeren",
+    "email": "inaklein@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Oneal",
+    "lastName": "Dickson",
+    "password": "hafismantap",
+    "email": "onealdickson@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Whitehead",
+    "lastName": "Barton",
+    "password": "wicakeren",
+    "email": "whiteheadbarton@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Henderson",
+    "lastName": "Mcmahon",
+    "password": "tiorzal",
+    "email": "hendersonmcmahon@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Ines",
+    "lastName": "Mcintyre",
+    "password": "wicakeren",
+    "email": "inesmcintyre@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Fern",
+    "lastName": "Stanton",
+    "password": "tiorzal",
+    "email": "fernstanton@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Latasha",
+    "lastName": "Kent",
+    "password": "hafismantap",
+    "email": "latashakent@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Livingston",
+    "lastName": "Melendez",
+    "password": "hafismantap",
+    "email": "livingstonmelendez@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Sears",
+    "lastName": "Bean",
+    "password": "hafismantap",
+    "email": "searsbean@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Terrie",
+    "lastName": "Buck",
+    "password": "tiorzal",
+    "email": "terriebuck@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Mcdowell",
+    "lastName": "Beard",
+    "password": "tiorzal",
+    "email": "mcdowellbeard@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Melanie",
+    "lastName": "Macias",
+    "password": "wicakeren",
+    "email": "melaniemacias@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Mathews",
+    "lastName": "Kirkland",
+    "password": "tiorzal",
+    "email": "mathewskirkland@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Fletcher",
+    "lastName": "Mcguire",
+    "password": "icanqanjing",
+    "email": "fletchermcguire@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Hodges",
+    "lastName": "Galloway",
+    "password": "wicakeren",
+    "email": "hodgesgalloway@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Preston",
+    "lastName": "Hartman",
+    "password": "icanqanjing",
+    "email": "prestonhartman@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Hoover",
+    "lastName": "Downs",
+    "password": "icanqanjing",
+    "email": "hooverdowns@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Marla",
+    "lastName": "Duffy",
+    "password": "wicakeren",
+    "email": "marladuffy@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Pearson",
+    "lastName": "Oneal",
+    "password": "hafismantap",
+    "email": "pearsononeal@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Letitia",
+    "lastName": "Berry",
+    "password": "tiorzal",
+    "email": "letitiaberry@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Maryellen",
+    "lastName": "Mills",
+    "password": "tiorzal",
+    "email": "maryellenmills@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Skinner",
+    "lastName": "Patterson",
+    "password": "icanqanjing",
+    "email": "skinnerpatterson@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Francine",
+    "lastName": "Avila",
+    "password": "wicakeren",
+    "email": "francineavila@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Neva",
+    "lastName": "Wagner",
+    "password": "hafismantap",
+    "email": "nevawagner@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Walker",
+    "lastName": "Boyle",
+    "password": "icanqanjing",
+    "email": "walkerboyle@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Lina",
+    "lastName": "Chavez",
+    "password": "wicakeren",
+    "email": "linachavez@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Nolan",
+    "lastName": "Alston",
+    "password": "hafismantap",
+    "email": "nolanalston@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Brittney",
+    "lastName": "Hale",
+    "password": "wicakeren",
+    "email": "brittneyhale@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Marianne",
+    "lastName": "Yang",
+    "password": "wicakeren",
+    "email": "marianneyang@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Earlene",
+    "lastName": "Pruitt",
+    "password": "wicakeren",
+    "email": "earlenepruitt@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Arnold",
+    "lastName": "Allen",
+    "password": "tiorzal",
+    "email": "arnoldallen@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Lori",
+    "lastName": "Simon",
+    "password": "hafismantap",
+    "email": "lorisimon@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Courtney",
+    "lastName": "Pope",
+    "password": "wicakeren",
+    "email": "courtneypope@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Lindsay",
+    "lastName": "Valencia",
+    "password": "hafismantap",
+    "email": "lindsayvalencia@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Tamera",
+    "lastName": "Greene",
+    "password": "wicakeren",
+    "email": "tameragreene@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Amie",
+    "lastName": "Baxter",
+    "password": "tiorzal",
+    "email": "amiebaxter@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Karla",
+    "lastName": "Pace",
+    "password": "wicakeren",
+    "email": "karlapace@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Harvey",
+    "lastName": "Cruz",
+    "password": "hafismantap",
+    "email": "harveycruz@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Smith",
+    "lastName": "Finley",
+    "password": "icanqanjing",
+    "email": "smithfinley@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Meagan",
+    "lastName": "Gates",
+    "password": "tiorzal",
+    "email": "meagangates@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Harrington",
+    "lastName": "Oneil",
+    "password": "wicakeren",
+    "email": "harringtononeil@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Tara",
+    "lastName": "Kemp",
+    "password": "hafismantap",
+    "email": "tarakemp@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Hanson",
+    "lastName": "Mcgee",
+    "password": "tiorzal",
+    "email": "hansonmcgee@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Russell",
+    "lastName": "Kidd",
+    "password": "hafismantap",
+    "email": "russellkidd@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "French",
+    "lastName": "Hogan",
+    "password": "icanqanjing",
+    "email": "frenchhogan@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Paula",
+    "lastName": "Higgins",
+    "password": "icanqanjing",
+    "email": "paulahiggins@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Mercado",
+    "lastName": "Carroll",
+    "password": "hafismantap",
+    "email": "mercadocarroll@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Moody",
+    "lastName": "Stokes",
+    "password": "tiorzal",
+    "email": "moodystokes@yurture.com",
+    "role": "anggota"
+  }
+]
