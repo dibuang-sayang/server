@@ -1,7 +1,7 @@
 const gql = require('graphql-tag');
 const createTestServer = require('./testserver');
-const { sequelize } = require('../models');
-const { Query } = require('pg');
+const  { sequelize } = require('../models');
+const {Office} = require('../models')
 const { queryInterface } = sequelize;
 
 const REGISTER_USER = gql`
@@ -54,28 +54,6 @@ const GET_ALL_OFFICE = gql`
         }
     }
 `
-
-const FAIL_GET_ALL_OFFICE = gql`
-    query findAllOffice {
-        offices {
-            ids
-            UserId
-            address
-            latitude
-            longitude
-            phoneNumber
-            category
-            User {
-                firstName
-                lastName
-                email
-                password
-                role
-            }
-        }
-    }
-`
-
 
 const GET_OFFICE_BY_ID = gql`
     query findOfficeById {
@@ -202,7 +180,9 @@ beforeAll( async () => {
                 headers : {
                     token :  tokenDummy
                 }
-            }
+            },
+            models : {Office}
+
         })
 
         const resOffice = await mutate({
@@ -226,13 +206,9 @@ describe("Testing Office", () => {
     // GET ALL OFFICE
     describe("GET All Office Data" , () => {
         test('success get all office data', async () => {
+            // const { Office } = models
             const {query} = createTestServer({
-                req : {
-                    headers : {
-                        token : tokenDummy
-                    }
-                    
-                }
+                models : {Office}
             })
 
             const officesData = await query({
@@ -243,12 +219,14 @@ describe("Testing Office", () => {
         })
 
         test ("failed get offices", async (done) => {
-            const {query} = createTestServer()
-            const failedOffice = await query({
-                query : FAIL_GET_ALL_OFFICE
+            const {query} = createTestServer({
+                models : null
             })
-            // console.log(failedOffice.errors[0].message, "ini fail");
-
+            
+            const failedOffice = await query({
+                query : GET_ALL_OFFICE
+            })
+            // console.log(failedOffice.errors[0].message, "<<<<<<<");
             expect(failedOffice.errors[0]).toHaveProperty("message")
             done()
         })
@@ -261,13 +239,14 @@ describe("Testing Office", () => {
     // Get office by ID
     describe("Get office by Id" , () => {
         test("success get office by Id", async (done) => {
+            // const {Office}= models
             const {query} = createTestServer({
                 req : {
                     headers : {
                         token : tokenDummy
-                    }
-                    
-                }
+                    },
+                },
+                models : {Office}
             })
             const officeData = await query({
                 query : GET_OFFICE_BY_ID,
@@ -277,13 +256,15 @@ describe("Testing Office", () => {
             done()
         })
 
-        test("failed get data without token ", async(done) => {
+        test("failed get data id without token ", async(done) => {
+            // const {Office}= models
             const {query} = createTestServer({
                 req : {
-                    headers :{
+                    headers : {
                         token : null
-                    }
-                }
+                    },
+                },
+                models : {Office}
             })
             const failedOfficeId = await query({
                 query : GET_OFFICE_BY_ID
@@ -292,17 +273,39 @@ describe("Testing Office", () => {
             expect(failedOfficeId.errors[0].message).toBe("please login ")
             done()
         })
+
+        test("failed get by ID return error", async (done) => {
+            // const {Office}= models
+            const {query} = createTestServer({
+                req : {
+                    headers : {
+                        token : tokenDummy
+                    },
+                },
+                models : null
+            })
+            const failedOfficeId = await query({
+                query : GET_OFFICE_BY_ID
+            })
+            // console.log(failedOfficeId, "<<< ini ini ini");
+            expect(failedOfficeId.errors[0]).toHaveProperty("message")
+            done()
+        })
         
     })
 
+
+    //Edit Office
     describe("edit office ", () => {
         test("succes edit office" ,async(done) => {
+            // const {Office} = models
             const {mutate} = createTestServer({
                 req : {
                     headers : {
                         token : tokenDummy
                     }
-                }
+                },
+                models : {Office}
             })
 
             const dummyEditOffice = {
@@ -327,12 +330,14 @@ describe("Testing Office", () => {
         } )
 
         test("failed authentication edit office" ,async(done) => {
+            // const {Office} = models
             const {mutate} = createTestServer({
                 req : {
                     headers : {
                         token : null
                     }
-                }
+                },
+                models : Office
             })
 
             const dummyEditOffice = {
@@ -358,12 +363,14 @@ describe("Testing Office", () => {
 
 
         test("failed authorization edit office" ,async(done) => {
+            
             const {mutate} = createTestServer({
                 req : {
                     headers : {
                         token : tokenDummyOrangBiasa
                     }
-                }
+                },
+                models : {Office}
             })
 
             const dummyEditOffice = {
@@ -382,12 +389,42 @@ describe("Testing Office", () => {
                 }
             })
 
-            console.log(failedRoleEditOffice, "ini edit office fail author");
             expect(failedRoleEditOffice.errors[0].message).toBe("unauthorize acces")
             done()
         } )
-    })
 
+        test("failed return error edit office" ,async(done) => {
+            console.log("return error dong");
+            const {mutate} = createTestServer({
+                req : {
+                    headers : {
+                        token : tokenDummy
+                    }
+                },
+                models : null
+            })
+
+            const dummyEditOffice = {
+                address: "disini sini ",
+                latitude: 12345,
+                longitude: 123456,
+                phoneNumber: "123567",
+                category: "kantor-pengepul"
+            }
+
+
+            const failedRoleEditOffice = await mutate({
+                query : EDIT_OFFICE,
+                variables : {
+                    data : dummyEditOffice
+                }
+            })
+            console.log(failedRoleEditOffice, "ini eror retyrn");
+            expect(failedRoleEditOffice.errors[0]).toHaveProperty("message")
+            done()
+        } )
+    })
+    //Delete Office
     describe("delete office ", () => {
         test("succes delete office" ,async(done) => {
             const {mutate} = createTestServer({
@@ -395,7 +432,8 @@ describe("Testing Office", () => {
                     headers : {
                         token : tokenDummy
                     }
-                }
+                },
+                models : {Office}
             })
 
             const succesDeleteOffice = await mutate({
@@ -413,15 +451,16 @@ describe("Testing Office", () => {
                     headers : {
                         token : null
                     }
-                }
+                },
+                models : {Office}
             })
 
-            const failedAuthEditOffice = await mutate({
+            const failedAuthDeleteOffice = await mutate({
                 query : DELETE_OFFICE,
             })
 
-            // console.log(failedAuthEditOffice, "ini delete office");
-            expect(failedAuthEditOffice.errors[0].message).toBe("please login ")
+            // console.log(failedAuthDeleteOffice, "ini delete office");
+            expect(failedAuthDeleteOffice.errors[0].message).toBe("please login ")
             done()
         } )
 
@@ -432,17 +471,164 @@ describe("Testing Office", () => {
                     headers : {
                         token : tokenDummyOrangBiasa
                     }
-                }
+                },
+                models : {Office}
             })
 
-            const failedRoleEditOffice = await mutate({
+            const failedRoleDeleteOffice = await mutate({
                 query : DELETE_OFFICE
             })
+            expect(failedRoleDeleteOffice.errors[0].message).toBe("unauthorize acces")
+            done()
+        } )
 
-            console.log(failedRoleEditOffice, "ini delete office fail author");
-            expect(failedRoleEditOffice.errors[0].message).toBe("unauthorize acces")
+
+        test("failed return error delete office" ,async(done) => {
+            const {mutate} = createTestServer({
+                req : {
+                    headers : {
+                        token : tokenDummy
+                    }
+                },
+                models : null
+            })
+
+            const failedRoleDeleteOffice = await mutate({
+                query : DELETE_OFFICE
+            })
+            console.log(failedRoleDeleteOffice, "<<<<");
+            expect(failedRoleDeleteOffice.errors[0]).toHaveProperty("message")
             done()
         } )
     })
+    //Add Office
+    describe("ADD office ", () => {
+        test("succes ADD office" ,async(done) => {
+            const {mutate} = createTestServer({
+                req : {
+                    headers : {
+                        token : tokenDummy
+                    }
+                },
+                models : {Office}
+            })
+
+            const dummyADDOffice = {
+                address: "disini sini ",
+                latitude: 12345,
+                longitude: 123456,
+                phoneNumber: "123567",
+                category: "kantor-pengepul"
+            }
+
+
+            const succesADDOffice = await mutate({
+                query : ADD_OFFICE,
+                variables : {
+                    inputOffice: dummyADDOffice
+                }
+            })
+
+            console.log(succesADDOffice.data, "ini ADD office");
+            expect(succesADDOffice.data).toHaveProperty("addOffice")
+            done()
+        } )
+
+        test("failed authentication ADD office" ,async(done) => {
+            // const {Office} = models
+            const {mutate} = createTestServer({
+                req : {
+                    headers : {
+                        token : null
+                    }
+                },
+                models : Office
+            })
+
+            const dummyADDOffice = {
+                address: "disini sini ",
+                latitude: 12345,
+                longitude: 123456,
+                phoneNumber: "123567",
+                category: "kantor-pengepul"
+            }
+
+
+            const failedAuthADDOffice = await mutate({
+                query : ADD_OFFICE,
+                variables : {
+                    inputOffice: dummyADDOffice
+                }
+            })
+
+            // console.log(failedAuthADDOffice, "ini ADD office");
+            expect(failedAuthADDOffice.errors[0].message).toBe("please login ")
+            done()
+        } )
+
+
+        test("failed authorization ADD office" ,async(done) => {
+            
+            const {mutate} = createTestServer({
+                req : {
+                    headers : {
+                        token : tokenDummyOrangBiasa
+                    }
+                },
+                models : {Office}
+            })
+
+            const dummyADDOffice = {
+                address: "disini sini ",
+                latitude: 12345,
+                longitude: 123456,
+                phoneNumber: "123567",
+                category: "kantor-pengepul"
+            }
+
+
+            const failedRoleADDOffice = await mutate({
+                query : ADD_OFFICE,
+                variables : {
+                    inputOffice : dummyADDOffice
+                }
+            })
+
+            expect(failedRoleADDOffice.errors[0].message).toBe("unauthorize acces")
+            done()
+        } )
+
+        test("failed return error ADD office" ,async(done) => {
+            console.log("return error dong");
+            const {mutate} = createTestServer({
+                req : {
+                    headers : {
+                        token : tokenDummy
+                    }
+                },
+                models : null
+            })
+
+            const dummyADDOffice = {
+                address: "disini sini ",
+                latitude: 12345,
+                longitude: 123456,
+                phoneNumber: "123567",
+                category: "kantor-pengepul"
+            }
+
+
+            const failedRoleADDOffice = await mutate({
+                query : ADD_OFFICE,
+                variables : {
+                    inputOffice : dummyADDOffice
+                }
+            })
+            console.log(failedRoleADDOffice, "ini eror retyrn");
+            expect(failedRoleADDOffice.errors[0]).toHaveProperty("message")
+            done()
+        } )
+    })
+
 
 })
