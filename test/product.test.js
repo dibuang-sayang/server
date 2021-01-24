@@ -257,7 +257,7 @@ beforeAll(async () => {
       },
     });
 
-    console.log(resOffice, '<<<< office');
+    // console.log(resOffice, '<<<< office');
   }
 });
 
@@ -285,7 +285,7 @@ describe('product tests', () => {
         }
       })
       ProductId = resProduct.data.addProduct.id
-      // console.log(resProduct.data.addProduct.id, '<<<<<<<< res product')
+      // console.log(resProduct.data, '<<<<<<<< res product')
       expect(resProduct.data).toHaveProperty('addProduct')
     }
   });
@@ -332,7 +332,67 @@ describe('product tests', () => {
       expect(resEditProduct.data).toHaveProperty('editProduct')
     }
   })
+  test('should failed edit product data', async () => {
+    {
+      const { mutate } = createTestServer({
+        req: {
+          headers: {
+            token: tokenDummyAnggota
+          }
+        }
+      })
+      const resEditFailed = await mutate({
+        query: EDIT_PRODUCT,
+        variables: {
+          inputId: ProductId,
+          editData: dummyEditProduct
+        }
+      })
+      // console.log(ProductId, '<<< ini idnya loh >>>')
+      // console.log(resEditFailed, '<<< ini edit loh >>>')
 
+    }
+  })
+  test('should failed delete products id not found return unauthorize', async () => {
+    {
+      const { mutate } = createTestServer({
+        req: {
+          headers: {
+            token: tokenDummyPengrajin
+          }
+        }
+      })
+      const resDeleteProduct = await mutate({
+        query: DELETE_PRODUCT,
+        variables: {
+          inputId: 999999999
+        }
+      })
+      // console.log(resDeleteProduct, '<<<< deleted failed >>>>')
+      expect(resDeleteProduct.data.deleteProduct).toBeNull()
+      // expect(resDeleteProduct.data.deleteProduct).toEqual({"msg": "succes delete product"})
+    }
+  })
+  test('should failed delete products id with unauthorized', async () => {
+    {
+      const { mutate } = createTestServer({
+        req: {
+          headers: {
+            token: tokenDummyAnggota
+          }
+        }
+      })
+      const resDeleteProduct = await mutate({
+        query: DELETE_PRODUCT,
+        variables: {
+          inputId: ProductId
+        }
+      })
+      console.log(resDeleteProduct, '<<<< deleted failed >>>>')
+      // expect(resDeleteProduct.data.deleteProduct).toBeNull()
+      // expect(resDeleteProduct.data.deleteProduct).toEqual({"msg": "succes delete product"})
+    }
+  })
   test('should succeed delete products', async () => {
     {
       const { mutate } = createTestServer({
@@ -348,7 +408,7 @@ describe('product tests', () => {
           inputId: ProductId
         }
       })
-      console.log(resDeleteProduct, '<<<< deleted >>>>')
+      // console.log(resDeleteProduct, '<<<< deleted >>>>')
       expect(resDeleteProduct.data.deleteProduct).toEqual({"msg": "succes delete product"})
     }
   })
