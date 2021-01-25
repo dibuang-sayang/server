@@ -230,33 +230,6 @@ module.exports = () => {
         });
         expect(res.errors[0].message).toBe('please login ');
       });
-      test('should be asking for login without token', async () => {
-        const { query } = createTestServer({
-          req: {
-            headers: {
-              token: dummyToken,
-            },
-          },
-        });
-        const res = await query({
-          query: gql`
-            query findById {
-              user {
-                id
-                nama
-                lastName
-                email
-                role
-              }
-            }
-          `,
-          variables: {
-            id: 1,
-          },
-        });
-        console.log(res, 'dari testing');
-        expect(res.errors[0].message).toBe('please login ');
-      });
     });
 
     describe('USER EDIT', () => {

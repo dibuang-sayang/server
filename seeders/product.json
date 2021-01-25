@@ -1,0 +1,82 @@
+[
+  {
+    "OfficeId": 2,
+    "name": "Stephenson",
+    "price": 444029,
+    "category": "barang mentah",
+    "stock": "54",
+    "picture": "https://dummyimage.com/420x260"
+  },
+  {
+    "OfficeId": 2,
+    "name": "Alana",
+    "price": 50000,
+    "category": "barang mentah",
+    "stock": "53",
+    "picture": "https://dummyimage.com/420x260"
+  },
+  {
+    "OfficeId": 2,
+    "name": "Finley",
+    "price": 100000,
+    "category": "barang mentah",
+    "stock": "13",
+    "picture": "https://dummyimage.com/420x260"
+  },
+  {
+    "OfficeId": 2,
+    "name": "Collier",
+    "price": 21000,
+    "category": "barang jadi",
+    "stock": "6",
+    "picture": "https://dummyimage.com/420x260"
+  },
+  {
+    "OfficeId": 2,
+    "name": "Yang",
+    "price": 21000,
+    "category": "barang mentah",
+    "stock": "59",
+    "picture": "https://dummyimage.com/420x260"
+  },
+  {
+    "OfficeId": 2,
+    "name": "Gilda",
+    "price": 100000,
+    "category": "barang jadi",
+    "stock": "98",
+    "picture": "https://dummyimage.com/420x260"
+  },
+  {
+    "OfficeId": 2,
+    "name": "Charity",
+    "price": 324500,
+    "category": "barang jadi",
+    "stock": "90",
+    "picture": "https://dummyimage.com/420x260"
+  },
+  {
+    "OfficeId": 2,
+    "name": "Ramirez",
+    "price": 50000,
+    "category": "barang mentah",
+    "stock": "83",
+    "picture": "https://dummyimage.com/420x260"
+  },
+  {
+    "OfficeId": 2,
+    "name": "Silva",
+    "price": 444029,
+    "category": "barang jadi",
+    "stock": "96",
+    "picture": "https://dummyimage.com/420x260"
+  },
+  {
+    "OfficeId": 2,
+    "name": "Myers",
+    "price": 21000,
+    "category": "barang mentah",
+    "stock": "89",
+    "picture": "https://dummyimage.com/420x260"
+  }
+]
