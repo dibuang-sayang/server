@@ -230,6 +230,23 @@ module.exports = () => {
         });
         expect(res.errors[0].message).toBe('please login ');
       });
+      test('should be asking for login without token', async () => {
+        const { query } = createTestServer({
+          req: {
+            headers: {
+              token:
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpbzRAbWFpbC5jb20iLCJpZCI6MSwicm9sZSI6ImFuZ2dvdGEiLCJpYXQiOjE2MTE0NjYxOTd9.RE-SgiV0PpRv9VUF3Vxy-emzKqb2udUjLrMu30Psvpo',
+            },
+          },
+        });
+        const res = await query({
+          query: FIND_USER_BY_ID,
+        });
+        console.log(res);
+        expect(res.errors[0].message).toBe(
+          `Cannot read property 'email' of null`
+        );
+      });
     });
 
     describe('USER EDIT', () => {
@@ -304,7 +321,7 @@ module.exports = () => {
         const res = await query({
           query: DELETE_USER,
         });
-        expect(res.data.deleteUser.msg).toBe('data not found');
+        expect(res.data.deleteUser).toBe(null);
       });
     });
   });
