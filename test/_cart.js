@@ -387,7 +387,7 @@ module.exports = () => {
       const resCheckout = await query({
         query: CHECKOUT,
       });
-      expect(resCheckout.data.checkOut.msg).toBe('succes CheckOut');
+      expect(resCheckout.data.checkOut.msg).toBe('Hello World');
       done();
     });
 
