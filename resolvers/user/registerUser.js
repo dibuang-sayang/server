@@ -2,6 +2,7 @@ const { User } = require('../../models');
 
 module.exports = async (_, args) => {
   try {
+    console.log(args)
     const { firstName, lastName, password, role, email } = args.data;
 
     const newUserData = {
