@@ -1,0 +1,18 @@
+[
+  {
+    "UserId": 2,
+    "address": "405 Church Avenue, Concho, Arizona, 9864",
+    "latitude": "-26.107136",
+    "longitude": "-122.786757",
+    "phoneNumber": "+62 (938) 415-2425",
+    "category": "pengrajin"
+  },
+  {
+    "UserId": 1,
+    "address": "340 Gain Court, Sanborn, Maine, 2761",
+    "latitude": "63.033986",
+    "longitude": "-179.443715",
+    "phoneNumber": "+62 (822) 531-2403",
+    "category": "pengepul"
+  }
+]
