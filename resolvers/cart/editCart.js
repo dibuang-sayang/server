@@ -4,6 +4,7 @@ const { authorizationIdCart } = require("../../helpers/authorizationCartId")
 
 module.exports = authentication(authorizationIdCart(async (_,args, {user}) =>{
     try {
+        console.log(args, "<<<< ini args");
         const cartId = args.id
         const {
             ProductId,
