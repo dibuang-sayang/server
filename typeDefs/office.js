@@ -10,6 +10,7 @@ module.exports = gql`
     phoneNumber: String
     category: String
     User: User
+    Products: [Product]
   }
 
   input OfficeData {
