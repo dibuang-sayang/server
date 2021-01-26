@@ -8,6 +8,7 @@ module.exports = authentication( async(_,args, {user}) =>{
         // if(Cart === undefined){
         //     throw {msg: 'error nih'}
         // }
+        console.log(args);
         let {
             ProductId,
             quantity,
@@ -25,7 +26,7 @@ module.exports = authentication( async(_,args, {user}) =>{
             where : {
                 [Op.and] : [
                     {ProductId},
-                    {UserId : user.id} 
+                    {UserId : user.id},
                 ]
             },
             include : ["Product"]
