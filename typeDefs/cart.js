@@ -7,6 +7,7 @@ module.exports = gql `
         ProductId : Int
         quantity : Int
         status : String
+        Product : Product
     }
 
     input CartData {

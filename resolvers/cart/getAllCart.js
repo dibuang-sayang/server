@@ -6,7 +6,9 @@ module.exports = authentication(async (_,args, {user}) => {
         const findUserCart = await Cart.findAll({
             where : {
                 UserId : user.id
-            }
+            },
+            include : ["Product"],
+            order :[["id","ASC"]]
         })
         return findUserCart
     } catch (error) {
