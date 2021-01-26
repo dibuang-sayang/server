@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require('apollo-server');
 
 module.exports = gql`
   type User {
@@ -8,6 +8,7 @@ module.exports = gql`
     password: String
     role: String
     email: String
+    Office: Office
   }
 
   input UserData {
