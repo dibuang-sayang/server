@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require('apollo-server');
 
 module.exports = gql`
   type Query {
@@ -11,8 +11,8 @@ module.exports = gql`
     products: [Product]
     product(id: ID!): Product
 
-    carts : [Cart]
-    cart(id : ID!) : Cart
-    checkOut : Message
+    carts: [Cart]
+    cart(id: ID!): Cart
+    checkOut: Message
   }
 `;
