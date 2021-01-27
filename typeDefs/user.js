@@ -25,5 +25,6 @@ module.exports = gql`
 
   type Token {
     token: String
+    User : User
   }
 `;

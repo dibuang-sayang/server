@@ -244,7 +244,7 @@ module.exports = () => {
         });
         console.log(res);
         expect(res.errors[0].message).toBe(
-          `Cannot read property 'email' of null`
+          `invalid signature`
         );
       });
     });
