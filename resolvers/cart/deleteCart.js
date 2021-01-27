@@ -4,7 +4,7 @@ const { authorizationIdCart } = require("../../helpers/authorizationCartId")
 
 module.exports = authentication(authorizationIdCart (async(_,args, {user} ) => {
     try {
-        console.log(args.id, 'ini di resolver');
+        // console.log(args.id, 'ini di resolver');
         const cartId = args.id
         const deletedData = await Cart.destroy({
             where : {

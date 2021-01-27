@@ -5,7 +5,7 @@ const { tokenVerify } = require("./jwtHelper")
 const authorizationUserRole = (role,next) => async (root,args,ctx,info) => {
     const token = ctx.req.headers.token
     const userLogin = tokenVerify(token)
-    console.log(userLogin);
+    // console.log(userLogin);
     const user = await User.findOne({
         where : {
             id : userLogin.id

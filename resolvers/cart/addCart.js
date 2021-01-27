@@ -8,7 +8,7 @@ module.exports = authentication( async(_,args, {user}) =>{
         // if(Cart === undefined){
         //     throw {msg: 'error nih'}
         // }
-        console.log(args);
+        // console.log(args);
         let {
             ProductId,
             quantity,
@@ -53,7 +53,7 @@ module.exports = authentication( async(_,args, {user}) =>{
             return updateCart[1][0].dataValues
         }
     } catch (error) {
-        console.log('error nih');
+        // console.log('error nih');
         return error;
     }
 })
