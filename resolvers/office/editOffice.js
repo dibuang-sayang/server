@@ -8,7 +8,7 @@ module.exports = authentication(
     ["pengepul", "pengrajin"],
     async (_, args, { user, models }) => {
       try {
-        console.log(models, "ini office");
+        // console.log(models, "ini office");
         const {Office} = models
         const { id } = await Office.findOne({ where: { UserId: user.id } });
 

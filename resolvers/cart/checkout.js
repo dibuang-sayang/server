@@ -24,7 +24,7 @@ module.exports = authentication(async (_,args, {user}) => {
         let externalID = ""
         allUserCarts.forEach(cart => {
             if(cart.quantity <= cart.Product.stock && cart.status != "lunas"){
-                console.log("masuk disini")
+                // console.log("masuk disini")
                 const finalStock = cart.Product.stock - cart.quantity
                 const productId = cart.Product.id
                 externalID = externalID+cart.id
@@ -47,12 +47,12 @@ module.exports = authentication(async (_,args, {user}) => {
                 toBeExecute.push(updateStatusOfCart)
             }
             else if (cart.status != "lunas") {
-                console.log("error disini", cart.dataValues)
+                // console.log("error disini", cart.dataValues)
                 fixQuantity.push(Cart.update({quantity: cart.Product.stock}), {where: { id: cart.id }})
                 errors.push(`gagal beli ${cart.Product.name}`)
             }
         });
-        console.log(totalPrice, "<<< ini totalnya");
+        // console.log(totalPrice, "<<< ini totalnya");
         const result = await Promise.all(toBeExecute)
         // console.log(errors, "<<<<< ini eror");
         if(errors.length > 0) {
@@ -65,7 +65,7 @@ module.exports = authentication(async (_,args, {user}) => {
             payerEmail : user.email,
             amount : totalPrice ,
         })
-        console.log(invoiceData.external_id, "ini ");
+        // console.log(invoiceData.external_id, "ini ");
         const message = {
             id : invoiceData.id,
             external_id : invoiceData.external_id,
@@ -78,7 +78,7 @@ module.exports = authentication(async (_,args, {user}) => {
             expiry_date : invoiceData.expiry_date,
             invoice_url : invoiceData.invoice_url,
         } 
-        console.log(message, "<<< ini message");
+        // console.log(message, "<<< ini message");
         await transaction.commit()
         return {msg : JSON.stringify(message)}
         

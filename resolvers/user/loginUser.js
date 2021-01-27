@@ -5,7 +5,7 @@ const { tokenEncode } = require('../../helpers/jwtHelper');
 module.exports = async (_, args) => {
   try {
     const loginUser = await User.findOne({ where: { email: args.email } , include : ["Office"]});
-    console.log(loginUser, "ini ininin");
+    // console.log(loginUser, "ini ininin");
     if (loginUser && decode(args.password, loginUser.password)) {
       return {
         token: tokenEncode({

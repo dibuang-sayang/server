@@ -10,7 +10,7 @@ module.exports = authentication(async (_, args, { user , models}) => {
       },
       include: [models.Product]
     });
-    console.log(officeData);
+    // console.log(officeData);
     return officeData;
   } catch (error) {
     return error;

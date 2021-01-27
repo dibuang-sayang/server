@@ -4,7 +4,7 @@ const { authentication } = require("../../helpers/authentication");
 
 module.exports = authentication( authorizationUserRole(["pengepul", "pengrajin"], async (_,args, {user}) => {
     try {
-        console.log(user);
+        // console.log(user);
         const officeData = await Office.findOne({
             where : {
                 UserId : user.id
