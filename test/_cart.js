@@ -387,7 +387,7 @@ module.exports = () => {
       const resCheckout = await query({
         query: CHECKOUT,
       });
-      expect(resCheckout.data.checkOut.msg).toBe('Hello World');
+      expect(resCheckout.data.checkOut).toHaveProperty('msg');
       done();
     });
 

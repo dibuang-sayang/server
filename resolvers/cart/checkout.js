@@ -78,7 +78,7 @@ module.exports = authentication(async (_,args, {user}) => {
             expiry_date : invoiceData.expiry_date,
             invoice_url : invoiceData.invoice_url,
         } 
-        // console.log(message, "<<< ini message");
+        console.log(message, "<<< ini message");
         await transaction.commit()
         return {msg : JSON.stringify(message)}
         
