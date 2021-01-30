@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "ubuntu",
-    "password": "ubuntu",
+    "username": "postgres",
+    "password": "postgres",
     "database": "dibuang_sayang",
     "host": "127.0.0.1",
     "dialect": "postgres",
@@ -16,10 +16,6 @@
     "logging": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "use_env_variable": "DATABASE_URL"
   }
 }
