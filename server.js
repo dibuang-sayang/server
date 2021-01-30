@@ -1,7 +1,7 @@
 const http = require('http')
 const server = require('./app')
-const PORT = process.env.PORT || 3000
+const port = process.env.PORT || 3000
 
-server.listen(PORT).then(({ url }) => {
+server.listen(port).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
