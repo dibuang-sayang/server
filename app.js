@@ -10,6 +10,8 @@ const models = require("./models")
 const server = new ApolloServer({ 
   typeDefs,
   resolvers,
+  introspection: true,
+  playground: true,
   context({req}) {
     // const token = req.headers.token
     // const userLogin = findUserFromToken(token)
