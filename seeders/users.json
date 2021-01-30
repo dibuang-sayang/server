@@ -1,0 +1,37 @@
+[
+  {
+    "firstName": "Bates",
+    "lastName": "Adams",
+    "password": "tiorzal",
+    "email": "batesadams@yurture.com",
+    "role": "pengepul"
+  },
+  {
+    "firstName": "Ina",
+    "lastName": "Klein",
+    "password": "wicakeren",
+    "email": "inaklein@yurture.com",
+    "role": "pengrajin"
+  },
+  {
+    "firstName": "Oneal",
+    "lastName": "Dickson",
+    "password": "hafismantap",
+    "email": "onealdickson@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Whitehead",
+    "lastName": "Barton",
+    "password": "wicakeren",
+    "email": "whiteheadbarton@yurture.com",
+    "role": "anggota"
+  },
+  {
+    "firstName": "Henderson",
+    "lastName": "Mcmahon",
+    "password": "tiorzal",
+    "email": "hendersonmcmahon@yurture.com",
+    "role": "anggota"
+  }
+]
